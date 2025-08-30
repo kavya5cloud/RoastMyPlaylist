@@ -1,0 +1,10 @@
+node_modules
+.git
+*.log
+.env
+.env.local
+.env.production.local
+.env.development.local
+client/src
+client/public
+server/storage.ts
