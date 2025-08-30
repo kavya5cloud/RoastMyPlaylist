@@ -85,22 +85,62 @@ Create a witty, shareable roast that's sarcastic but not mean. The headline shou
 
   private getFallbackRoast(data: RoastGenerationRequest): GeneratedRoast {
     const roastTemplates = {
-      sad_songs: {
-        headline: "This playlist screams crying in the shower at 3 AM",
-        description: `With ${data.sadSongsPercentage}% sad songs and an average tempo of ${data.avgTempo} BPM, your playlist is basically a therapy session set to music. Maybe try some upbeat songs between the emotional breakdowns?`
-      },
-      obsessed_fan: {
-        headline: `Are you in a relationship with ${data.repeatArtist} or what?`,
-        description: `Playing ${data.repeatArtist} ${data.repeatArtistCount} times in your top tracks isn't dedication, it's a cry for help. Even Spotify is concerned about your commitment issues.`
-      },
-      mainstream: {
-        headline: "Your taste is so basic, even vanilla is jealous",
-        description: `${data.mainStreamPercentage}% mainstream music means you basically let radio DJs curate your personality. At least you're consistent in your lack of originality.`
-      },
-      nostalgia: {
-        headline: "Still living in the 2010s, I see",
-        description: `${data.nostalgiaPercentage}% of your music is from the early 2010s. We get it, high school was the peak of your existence, but maybe it's time to discover what happened after 2015?`
-      }
+      sad_songs: [
+        {
+          headline: "This playlist screams crying in the shower at 3 AM",
+          description: `With ${data.sadSongsPercentage}% sad songs and an average tempo of ${data.avgTempo} BPM, your playlist is basically a therapy session set to music. Maybe try some upbeat songs between the emotional breakdowns?`
+        },
+        {
+          headline: "Did your playlist just file for depression therapy?",
+          description: `${data.sadSongsPercentage}% sad songs? Your Spotify Wrapped is going to need its own emotional support animal. Even your headphones are getting depressed.`
+        },
+        {
+          headline: "Your music taste needs a hug... and maybe some antidepressants",
+          description: `At ${data.avgTempo} BPM average, your playlist moves slower than a funeral march. We're starting to think your happy songs got lost in the mail.`
+        }
+      ],
+      obsessed_fan: [
+        {
+          headline: `Are you in a relationship with ${data.repeatArtist} or what?`,
+          description: `Playing ${data.repeatArtist} ${data.repeatArtistCount} times in your top tracks isn't dedication, it's a cry for help. Even Spotify is concerned about your commitment issues.`
+        },
+        {
+          headline: `${data.repeatArtist} called - they want a restraining order`,
+          description: `${data.repeatArtistCount} songs from the same artist? That's not being a fan, that's being a professional stalker. Time to diversify your obsessions.`
+        },
+        {
+          headline: `Breaking: Local person discovers only one artist exists`,
+          description: `With ${data.repeatArtist} dominating your playlist, we're wondering if you know other musicians exist. It's like musical tunnel vision, but make it cringe.`
+        }
+      ],
+      mainstream: [
+        {
+          headline: "Your taste is so basic, even vanilla is jealous",
+          description: `${data.mainStreamPercentage}% mainstream music means you basically let radio DJs curate your personality. At least you're consistent in your lack of originality.`
+        },
+        {
+          headline: "Congratulations, you've achieved maximum basic",
+          description: `With ${data.mainStreamPercentage}% mainstream hits, your playlist is basically just the Billboard Hot 100 on repeat. Original thought has left the chat.`
+        },
+        {
+          headline: "Your music taste is sponsored by Top 40 radio",
+          description: `${data.mainStreamPercentage}% popular music? You're basically a human jukebox playing the same 20 songs everyone else knows. Innovation? Never heard of her.`
+        }
+      ],
+      nostalgia: [
+        {
+          headline: "Still living in the 2010s, I see",
+          description: `${data.nostalgiaPercentage}% of your music is from the early 2010s. We get it, high school was the peak of your existence, but maybe it's time to discover what happened after 2015?`
+        },
+        {
+          headline: "Time traveler spotted: stuck in 2012",
+          description: `${data.nostalgiaPercentage}% nostalgia music? Your playlist is basically a time capsule from when people still used iPods. Maybe try something from this decade?`
+        },
+        {
+          headline: "Your playlist called - it wants to graduate from high school",
+          description: `With ${data.nostalgiaPercentage}% throwback tracks, you're basically living in a permanent homecoming dance. The early 2010s called, they want their music back.`
+        }
+      ]
     };
 
     // Determine category based on data
@@ -110,15 +150,26 @@ Create a witty, shareable roast that's sarcastic but not mean. The headline shou
     else if (data.mainStreamPercentage > 80) category = 'mainstream';
     else if (data.nostalgiaPercentage > 50) category = 'nostalgia';
 
-    const fallbackTemplate = {
-      headline: "Your taste is questionably unique",
-      description: `With ${data.uniqueArtists} artists in your rotation, you're either really eclectic or just can't make up your mind. Either way, it's... interesting.`
-    };
+    const fallbackTemplates = [
+      {
+        headline: "Your taste is questionably unique",
+        description: `With ${data.uniqueArtists} artists in your rotation, you're either really eclectic or just can't make up your mind. Either way, it's... interesting.`
+      },
+      {
+        headline: "Musical chaos has entered the chat",
+        description: `${data.uniqueArtists} different artists? Your playlist has more personalities than a reality TV show. At least you're... diverse?`
+      },
+      {
+        headline: "Your Spotify algorithm is having an identity crisis",
+        description: `With ${data.avgTempo} BPM average and music from ${data.oldestSong}, your taste spans decades and genres. Congrats on confusing everyone, including yourself.`
+      }
+    ];
     
-    const template = roastTemplates[category as keyof typeof roastTemplates] || fallbackTemplate;
+    const templates = roastTemplates[category as keyof typeof roastTemplates] || fallbackTemplates;
+    const randomTemplate = templates[Math.floor(Math.random() * templates.length)];
     
     return {
-      ...template,
+      ...randomTemplate,
       category
     };
   }
