@@ -72,11 +72,20 @@ export default function Loading() {
           <h2 className="text-lg pixel-text text-white mb-6 uppercase leading-relaxed">Analyzing Your Music Taste...</h2>
           <p className="text-green-400 pixel-text mb-8 text-sm uppercase leading-relaxed">This might hurt a little</p>
           
-          <div className="space-y-4 text-left">
+          <div className="space-y-4 text-left max-w-sm mx-auto">
             {loadingSteps.map((step, index) => (
               <div key={index} className="flex items-center gap-3" data-testid={`loading-step-${index}`}>
+                <div className={`w-4 h-4 border-2 flex-shrink-0 ${
+                  index <= currentStep 
+                    ? 'border-green-400 bg-green-400' 
+                    : 'border-gray-500'
+                }`}>
+                  {index <= currentStep && (
+                    <div className="text-black text-xs leading-none">✓</div>
+                  )}
+                </div>
                 <span 
-                  className={`text-sm pixel-text leading-relaxed ${
+                  className={`text-xs pixel-text leading-relaxed break-words ${
                     index <= currentStep 
                       ? 'text-white' 
                       : 'text-gray-500'
