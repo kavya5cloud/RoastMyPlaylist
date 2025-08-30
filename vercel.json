@@ -2,14 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "NODE_ENV=production vite build",
-        "distDir": "dist/public"
-      }
-    },
-    {
       "src": "api/index.ts",
       "use": "@vercel/node@3.0.0"
     }
@@ -23,5 +15,7 @@
       "src": "/(.*)",
       "dest": "/dist/public/$1"
     }
-  ]
+  ],
+  "buildCommand": "NODE_ENV=production vite build",
+  "outputDirectory": "dist/public"
 }
