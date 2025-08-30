@@ -1,4 +1,5 @@
 import type { Roast, MusicAnalysis } from "@shared/schema";
+import { TypingText, AnimatedLetters } from "@/components/typing-text";
 
 interface RoastCardProps {
   roast: Roast;
@@ -10,11 +11,19 @@ export function RoastCard({ roast, analysis }: RoastCardProps) {
     <div id="roast-card" className="roast-card p-8 md:p-12 rounded-3xl mb-8 text-center animate-fade-in">
       <div className="text-6xl md:text-7xl mb-8 animate-float">🔥</div>
       <h1 className="text-3xl md:text-5xl lg:text-6xl heading-display text-gradient animate-glow mb-8" data-testid="text-roast-headline">
-        "{roast.headline}"
+        "<TypingText 
+          text={roast.headline} 
+          speed={60} 
+          showCursor={false}
+          className="glitch-text"
+        />"
       </h1>
-      <p className="text-xl md:text-2xl lg:text-3xl text-enhanced text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto" data-testid="text-roast-description">
-        {roast.description}
-      </p>
+      <div className="text-xl md:text-2xl lg:text-3xl text-enhanced text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto" data-testid="text-roast-description">
+        <AnimatedLetters 
+          text={roast.description}
+          delay={3000}
+        />
+      </div>
       
       {/* Roast Categories */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">

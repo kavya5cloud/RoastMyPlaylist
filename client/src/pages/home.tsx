@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { getCurrentUser, initiateSpotifyLogin } from "@/lib/spotify-auth";
 import { useLocation } from "wouter";
+import { TypingText, AnimatedLetters } from "@/components/typing-text";
 
 export default function Home() {
   const [, setLocation] = useLocation();
@@ -48,14 +49,24 @@ export default function Home() {
             <div className="mb-12">
               <div className="text-8xl md:text-9xl mb-6 animate-float">🎵</div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl heading-display text-gradient animate-glow mb-6">
-                Welcome Back,<br />{user.displayName}!
+                <TypingText 
+                  text={`Welcome Back, ${user.displayName}!`} 
+                  speed={80} 
+                  className="glitch-text"
+                />
               </h1>
-              <p className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
-                Ready for another brutal review of your music taste?
-              </p>
-              <p className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
-                Let's see what questionable choices you've made recently 😈
-              </p>
+              <div className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto text-reveal-delay">
+                <AnimatedLetters 
+                  text="Ready for another brutal review of your music taste?"
+                  delay={3000}
+                />
+              </div>
+              <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto text-reveal-delay-2">
+                <AnimatedLetters 
+                  text="Let's see what questionable choices you've made recently 😈"
+                  delay={4500}
+                />
+              </div>
             </div>
 
             <Button 
@@ -97,14 +108,31 @@ export default function Home() {
           <div className="mb-12">
             <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
             <h1 className="text-6xl md:text-8xl lg:text-9xl heading-display text-gradient animate-glow mb-6">
-              Your Playlist<br />Just Got Roasted
+              <TypingText 
+                text="Your Playlist" 
+                speed={120} 
+                className="block"
+                onComplete={() => {}}
+              />
+              <TypingText 
+                text="Just Got Roasted" 
+                speed={100} 
+                delay={2000}
+                className="block glitch-text"
+              />
             </h1>
-            <p className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
-              Connect your Spotify and let AI brutally judge your music taste
-            </p>
-            <p className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
-              Prepare for some savage but hilarious feedback 😈
-            </p>
+            <div className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto text-reveal-delay">
+              <AnimatedLetters 
+                text="Connect your Spotify and let AI brutally judge your music taste"
+                delay={4000}
+              />
+            </div>
+            <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto text-reveal-delay-2">
+              <AnimatedLetters 
+                text="Prepare for some savage but hilarious feedback 😈"
+                delay={5500}
+              />
+            </div>
           </div>
 
           <Button 
