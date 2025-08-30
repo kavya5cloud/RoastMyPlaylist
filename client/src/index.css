@@ -375,10 +375,6 @@
     margin-left: 2px;
   }
   
-  .pixel-cursor.cursor-complete {
-    animation: none;
-    opacity: 0;
-  }
   
   @keyframes pixelBlink {
     0%, 50% { opacity: 1; }

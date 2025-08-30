@@ -81,8 +81,8 @@ export function TypingText({
   return (
     <span className={`pixel-text typewriter-container ${className}`}>
       {displayText}
-      {showCursor && (
-        <span className={`pixel-cursor ${isComplete ? 'cursor-complete' : ''}`}>█</span>
+      {showCursor && isTyping && !isComplete && (
+        <span className="pixel-cursor">█</span>
       )}
     </span>
   );
