@@ -103,32 +103,36 @@ export default function Results() {
           </div>
 
           {/* Music Stats */}
-          <div className="glass-card p-6 rounded-2xl mb-8">
-            <h3 className="text-xl font-bold mb-4 text-center">Your Musical Breakdown</h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-black text-primary" data-testid="stat-top-artist-plays">
+          <div className="glass-card p-8 rounded-3xl mb-8 animate-slide-up">
+            <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center text-gradient">Your Musical Breakdown</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+              <div className="stat-card p-6 rounded-2xl">
+                <div className="text-4xl md:text-5xl font-black text-gradient mb-2" data-testid="stat-top-artist-plays">
                   {analysis.topArtistPlays}
                 </div>
-                <p className="text-sm text-muted-foreground">{analysis.repeatArtist} plays</p>
+                <p className="text-sm font-medium text-muted-foreground">{analysis.repeatArtist} plays</p>
+                <div className="text-2xl mt-2">🎤</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-secondary" data-testid="stat-oldest-song">
+              <div className="stat-card p-6 rounded-2xl">
+                <div className="text-4xl md:text-5xl font-black text-gradient mb-2" data-testid="stat-oldest-song">
                   {analysis.oldestSong}
                 </div>
-                <p className="text-sm text-muted-foreground">Oldest song year</p>
+                <p className="text-sm font-medium text-muted-foreground">Oldest song year</p>
+                <div className="text-2xl mt-2">⏰</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-primary" data-testid="stat-avg-tempo">
+              <div className="stat-card p-6 rounded-2xl">
+                <div className="text-4xl md:text-5xl font-black text-gradient mb-2" data-testid="stat-avg-tempo">
                   {analysis.avgTempo}
                 </div>
-                <p className="text-sm text-muted-foreground">Avg BPM</p>
+                <p className="text-sm font-medium text-muted-foreground">Avg BPM</p>
+                <div className="text-2xl mt-2">⚡</div>
               </div>
-              <div>
-                <div className="text-3xl font-black text-secondary" data-testid="stat-unique-artists">
+              <div className="stat-card p-6 rounded-2xl">
+                <div className="text-4xl md:text-5xl font-black text-gradient mb-2" data-testid="stat-unique-artists">
                   {analysis.uniqueArtists}
                 </div>
-                <p className="text-sm text-muted-foreground">Unique artists</p>
+                <p className="text-sm font-medium text-muted-foreground">Unique artists</p>
+                <div className="text-2xl mt-2">👥</div>
               </div>
             </div>
           </div>

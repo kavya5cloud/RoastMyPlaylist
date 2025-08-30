@@ -45,15 +45,15 @@ export default function Home() {
       <div className="min-h-screen gradient-bg">
         <section className="min-h-screen flex items-center justify-center p-4">
           <div className="max-w-2xl mx-auto text-center animate-fade-in">
-            <div className="mb-8">
-              <div className="text-8xl mb-4 animate-pulse-slow">🔥</div>
-              <h1 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
-                Welcome Back, {user.displayName}!
+            <div className="mb-12">
+              <div className="text-8xl md:text-9xl mb-6 animate-float">🎵</div>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-gradient animate-glow leading-tight">
+                Welcome Back,<br />{user.displayName}!
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-2">
+              <p className="text-xl md:text-3xl text-muted-foreground font-medium mb-4 max-w-3xl mx-auto">
                 Ready for another brutal review of your music taste?
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Let's see what questionable choices you've made recently 😈
               </p>
             </div>
@@ -94,15 +94,15 @@ export default function Home() {
     <div className="min-h-screen gradient-bg">
       <section className="min-h-screen flex items-center justify-center p-4">
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
-          <div className="mb-8">
-            <div className="text-8xl mb-4 animate-pulse-slow">🔥</div>
-            <h1 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
-              Your Playlist Just Got Roasted
+          <div className="mb-12">
+            <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 text-gradient animate-glow leading-tight">
+              Your Playlist<br />Just Got Roasted
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-medium mb-2">
+            <p className="text-xl md:text-3xl text-muted-foreground font-medium mb-4 max-w-3xl mx-auto">
               Connect your Spotify and let AI brutally judge your music taste
             </p>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
               Prepare for some savage but hilarious feedback 😈
             </p>
           </div>
