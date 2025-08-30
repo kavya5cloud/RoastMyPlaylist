@@ -1,12 +1,19 @@
 {
   "version": 2,
-  "buildCommand": "vite build --config vite.config.prod.ts",
-  "outputDirectory": "dist/public",
-  "functions": {
-    "api/index.ts": {
-      "runtime": "@vercel/node@3.0.0"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "NODE_ENV=production vite build",
+        "distDir": "dist/public"
+      }
+    },
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node@3.0.0"
     }
-  },
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -16,8 +23,5 @@
       "src": "/(.*)",
       "dest": "/dist/public/$1"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
