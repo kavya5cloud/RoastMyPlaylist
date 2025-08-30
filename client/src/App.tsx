@@ -40,6 +40,13 @@ function Router() {
         variant: "destructive",
       });
       window.history.replaceState({}, document.title, window.location.pathname);
+    } else if (error === 'auth-required') {
+      toast({
+        title: "Authentication required",
+        description: "Please log in with Spotify to continue.",
+        variant: "destructive",
+      });
+      window.history.replaceState({}, document.title, window.location.pathname);
     }
   }, [toast]);
 

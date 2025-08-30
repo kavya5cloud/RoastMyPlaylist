@@ -29,14 +29,14 @@ export default function Loading() {
     },
     onError: (error) => {
       console.error("Failed to generate roast:", error);
-      setLocation("/?error=roast-failed");
+      setLocation("/");
     }
   });
 
   useEffect(() => {
     // Redirect to home if not authenticated
     if (authError || (!isCheckingAuth && !user)) {
-      setLocation("/?error=auth-required");
+      setLocation("/");
       return;
     }
 
