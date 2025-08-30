@@ -93,7 +93,7 @@
 
 @layer utilities {
   .gradient-bg {
-    background: linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 15%, 12%) 100%);
+    background: hsl(240, 8%, 10%);
     position: relative;
     overflow: hidden;
   }
@@ -108,18 +108,17 @@
   }
   
   .glass-card {
-    background: rgba(15, 15, 23, 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    background: rgba(20, 20, 28, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
   }
   
   .glass-card:hover {
-    background: rgba(15, 15, 23, 0.8);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(20, 20, 28, 0.7);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
   
   .roast-card {
@@ -150,11 +149,9 @@
   }
   
   .spotify-button {
-    background: linear-gradient(135deg, 
-      hsl(142, 76%, 36%) 0%, 
-      hsl(142, 80%, 42%) 100%);
+    background: hsl(142, 70%, 38%);
     border: none;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
   }
@@ -178,11 +175,9 @@
   }
   
   .spotify-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(29, 185, 84, 0.3);
-    background: linear-gradient(135deg, 
-      hsl(142, 80%, 42%) 0%, 
-      hsl(142, 85%, 48%) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 15px rgba(29, 185, 84, 0.2);
+    background: hsl(142, 75%, 42%);
   }
   
   .share-button {
@@ -241,16 +236,10 @@
   }
   
   .text-gradient {
-    background: linear-gradient(135deg, 
-      hsl(200, 70%, 60%) 0%, 
-      hsl(280, 60%, 70%) 50%,
-      hsl(320, 60%, 65%) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: hsl(210, 40%, 85%);
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.01em;
   }
   
   .heading-display {
@@ -280,14 +269,14 @@
   
   .typewriter {
     overflow: hidden;
-    border-right: 3px solid rgba(100, 150, 255, 0.8);
+    border-right: 2px solid rgba(210, 210, 220, 0.6);
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blinkCursor 1s infinite;
   }
   
   .typewriter-slow {
     overflow: hidden;
-    border-right: 3px solid rgba(150, 100, 255, 0.8);
+    border-right: 2px solid rgba(210, 210, 220, 0.6);
     white-space: nowrap;
     animation: typewriter 4s steps(50, end) 0.5s both, blinkCursor 1s infinite 0.5s;
   }
@@ -335,63 +324,35 @@
   .letter-animation:nth-child(15) { animation-delay: 1.5s; }
   
   .retro-text {
-    font-family: var(--font-terminal);
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #00ff00;
-    text-shadow: 0 0 10px #00ff00;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: hsl(210, 40%, 85%);
   }
   
   .cyber-text {
-    font-family: var(--font-terminal);
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: hsl(210, 40%, 85%);
   }
   
   .terminal-text {
-    font-family: var(--font-terminal);
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
-    letter-spacing: 0.05em;
-  }
-  
-  .crt-screen {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .crt-screen::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(transparent 50%, rgba(0, 255, 0, 0.03) 50%);
-    background-size: 100% 4px;
-    pointer-events: none;
-    z-index: 1;
+    font-family: var(--font-display);
+    color: hsl(210, 40%, 85%);
+    letter-spacing: 0.01em;
   }
   
   .stat-card {
-    background: linear-gradient(135deg, 
-      rgba(142, 76, 36, 0.1) 0%, 
-      rgba(157, 78, 221, 0.1) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    background: rgba(25, 25, 35, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease;
   }
   
   .stat-card:hover {
-    background: linear-gradient(135deg, 
-      rgba(142, 76, 36, 0.2) 0%, 
-      rgba(157, 78, 221, 0.2) 100%);
-    border-color: rgba(157, 78, 221, 0.3);
-    transform: scale(1.02);
+    background: rgba(25, 25, 35, 0.6);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 }
 
@@ -410,100 +371,6 @@
   50% { transform: translateY(-10px); }
 }
 
-@keyframes glow {
-  0%, 100% { 
-    text-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
-  }
-  50% { 
-    text-shadow: 0 0 30px rgba(150, 100, 255, 0.4);
-  }
-}
-
-@keyframes electricBg {
-  0% {
-    background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%, 0% 0%;
-  }
-  50% {
-    background-position: 25% 25%, 75% 75%, 75% 25%, 50% 50%, 0% 0%;
-  }
-  100% {
-    background-position: 50% 50%, 50% 50%, 25% 75%, 75% 25%, 0% 0%;
-  }
-}
-
-@keyframes electricGrid {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-    opacity: 0.3;
-  }
-  25% {
-    opacity: 0.6;
-  }
-  50% {
-    transform: translate(20px, 10px) rotate(180deg);
-    opacity: 0.4;
-  }
-  75% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(0, 0) rotate(360deg);
-    opacity: 0.3;
-  }
-}
-
-@keyframes electricSweep {
-  0% {
-    transform: translateX(-100%) skewX(-15deg);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100%) skewX(-15deg);
-    opacity: 0;
-  }
-}
-
-@keyframes electricPulse {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6), inset 0 0 30px rgba(0, 255, 255, 0.2);
-  }
-}
-
-@keyframes matrixGrid {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(30px);
-  }
-}
-
-@keyframes terminalGlow {
-  0% {
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-  }
-  100% {
-    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00;
-  }
-}
-
-@keyframes scanline {
-  0% {
-    transform: translateY(-100vh);
-  }
-  100% {
-    transform: translateY(100vh);
-  }
-}
 
 @keyframes typewriter {
   from {
@@ -516,7 +383,7 @@
 
 @keyframes blinkCursor {
   0%, 50% {
-    border-right-color: rgba(100, 150, 255, 0.8);
+    border-right-color: rgba(210, 210, 220, 0.6);
   }
   51%, 100% {
     border-right-color: transparent;
