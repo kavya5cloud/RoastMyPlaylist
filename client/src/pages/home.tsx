@@ -123,7 +123,7 @@ export default function Home() {
             </div>
             <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto text-reveal-delay-2">
               <AnimatedLetters 
-                text="Prepare for some savage but hilarious feedback 😈"
+                text="Prepare for some savage but hilarious feedback"
                 delay={5500}
               />
             </div>
