@@ -88,12 +88,16 @@
 
 @layer utilities {
   .gradient-bg {
-    background: radial-gradient(ellipse at top left, rgba(142, 76, 36, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at top right, rgba(157, 78, 221, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at bottom left, rgba(320, 70, 55, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, hsl(240, 10%, 3%) 0%, hsl(240, 15%, 8%) 100%);
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(200, 100%, 25%) 0%, transparent 40%),
+      radial-gradient(circle at 80% 20%, hsl(280, 95%, 25%) 0%, transparent 40%),
+      radial-gradient(circle at 40% 40%, hsl(320, 100%, 25%) 0%, transparent 40%),
+      radial-gradient(circle at 60% 80%, hsl(180, 100%, 20%) 0%, transparent 40%),
+      linear-gradient(135deg, hsl(240, 100%, 4%) 0%, hsl(280, 80%, 8%) 50%, hsl(200, 100%, 5%) 100%);
+    background-size: 150% 150%, 150% 150%, 150% 150%, 150% 150%, 100% 100%;
     position: relative;
     overflow: hidden;
+    animation: electricBg 12s ease-in-out infinite alternate;
   }
   
   .gradient-bg::before {
@@ -103,23 +107,40 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+    background: 
+      radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.08) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.08) 2px, transparent 2px),
+      linear-gradient(90deg, transparent 0%, rgba(0, 255, 255, 0.02) 50%, transparent 100%);
+    background-size: 80px 80px, 120px 120px, 100% 100%;
+    animation: electricGrid 20s linear infinite;
+    pointer-events: none;
+  }
+  
+  .gradient-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 0%, rgba(0, 255, 255, 0.03) 50%, transparent 100%);
+    animation: electricSweep 8s ease-in-out infinite;
     pointer-events: none;
   }
   
   .glass-card {
     background: rgba(15, 15, 23, 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .glass-card:hover {
     background: rgba(15, 15, 23, 0.8);
-    border-color: rgba(157, 78, 221, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(157, 78, 221, 0.1);
+    border-color: rgba(0, 255, 255, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 255, 255, 0.3), 0 0 50px rgba(255, 0, 255, 0.2);
   }
   
   .roast-card {
@@ -151,11 +172,14 @@
   
   .spotify-button {
     background: linear-gradient(135deg, 
-      hsl(142, 76%, 36%) 0%, 
-      hsl(142, 80%, 42%) 100%);
+      hsl(180, 100%, 40%) 0%, 
+      hsl(280, 100%, 50%) 50%,
+      hsl(320, 100%, 45%) 100%);
+    border: 2px solid rgba(0, 255, 255, 0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    animation: electricPulse 3s ease-in-out infinite;
   }
   
   .spotify-button::before {
@@ -177,11 +201,9 @@
   }
   
   .spotify-button:hover {
-    background: linear-gradient(135deg, 
-      hsl(142, 80%, 42%) 0%, 
-      hsl(142, 85%, 48%) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(29, 185, 84, 0.4);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 255, 255, 0.4), 0 0 50px rgba(255, 0, 255, 0.3);
+    border-color: rgba(0, 255, 255, 0.6);
   }
   
   .share-button {
@@ -241,15 +263,18 @@
   
   .text-gradient {
     background: linear-gradient(135deg, 
-      hsl(142, 76%, 36%) 0%, 
-      hsl(268, 76%, 56%) 50%,
-      hsl(320, 70%, 55%) 100%);
+      hsl(180, 100%, 50%) 0%, 
+      hsl(280, 100%, 60%) 30%,
+      hsl(320, 100%, 55%) 60%,
+      hsl(200, 100%, 50%) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: var(--font-display);
     font-weight: 700;
     letter-spacing: -0.02em;
+    background-size: 200% 200%;
+    animation: electricGradient 4s ease-in-out infinite;
   }
   
   .heading-display {
@@ -311,14 +336,84 @@
 }
 
 @keyframes glow {
-  0% { 
-    text-shadow: 0 0 5px rgba(29, 185, 84, 0.3),
-                 0 0 10px rgba(29, 185, 84, 0.2),
-                 0 0 15px rgba(29, 185, 84, 0.1);
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
+                 0 0 20px rgba(0, 255, 255, 0.4),
+                 0 0 30px rgba(0, 255, 255, 0.2),
+                 0 0 40px rgba(255, 0, 255, 0.1);
   }
-  100% { 
-    text-shadow: 0 0 10px rgba(157, 78, 221, 0.4),
-                 0 0 20px rgba(157, 78, 221, 0.3),
-                 0 0 30px rgba(157, 78, 221, 0.2);
+  50% { 
+    text-shadow: 0 0 15px rgba(255, 0, 255, 0.8),
+                 0 0 30px rgba(255, 0, 255, 0.5),
+                 0 0 45px rgba(255, 0, 255, 0.3),
+                 0 0 60px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes electricBg {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 25% 75%, 0% 0%;
+  }
+  50% {
+    background-position: 25% 25%, 75% 75%, 75% 25%, 50% 50%, 0% 0%;
+  }
+  100% {
+    background-position: 50% 50%, 50% 50%, 25% 75%, 75% 25%, 0% 0%;
+  }
+}
+
+@keyframes electricGrid {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.3;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(20px, 10px) rotate(180deg);
+    opacity: 0.4;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+    opacity: 0.3;
+  }
+}
+
+@keyframes electricSweep {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) skewX(-15deg);
+    opacity: 0;
+  }
+}
+
+@keyframes electricPulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(0, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(255, 0, 255, 0.6), inset 0 0 30px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes electricGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
