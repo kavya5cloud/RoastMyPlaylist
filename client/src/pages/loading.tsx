@@ -28,8 +28,14 @@ export default function Loading() {
   });
 
   useEffect(() => {
-    // Start the roast generation process
-    generateRoastMutation.mutate();
+    // Check if we have authentication before starting roast generation
+    const urlParams = new URLSearchParams(window.location.search);
+    const preview = urlParams.get('preview');
+    
+    if (!preview) {
+      // Start the roast generation process only if not in preview mode
+      generateRoastMutation.mutate();
+    }
 
     // Animate through steps
     const interval = setInterval(() => {
@@ -47,12 +53,12 @@ export default function Loading() {
   }, []);
 
   return (
-    <div className="min-h-screen gradient-bg flex items-center justify-center p-4">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="max-w-md mx-auto text-center">
-        <div className="glass-card p-8 rounded-2xl">
+        <div className="border-4 border-green-500 bg-gray-900 p-8 pixel-border">
           <div className="text-6xl mb-6 animate-bounce">🎵</div>
-          <h2 className="text-2xl font-bold mb-4">Analyzing Your Music Taste...</h2>
-          <p className="text-muted-foreground mb-6">This might hurt a little 😬</p>
+          <h2 className="text-lg pixel-text text-white mb-4 uppercase">Analyzing Your Music Taste...</h2>
+          <p className="text-green-400 pixel-text mb-6 text-sm uppercase">This might hurt a little</p>
           
           <div className="space-y-3 text-left">
             {loadingSteps.map((step, index) => (
