@@ -143,19 +143,39 @@ export class SpotifyService {
   }
 
   async getAudioFeatures(accessToken: string, trackIds: string[]): Promise<AudioFeatures[]> {
-    const idsParam = trackIds.join(',');
-    const response = await fetch(`${this.baseUrl}/audio-features?ids=${idsParam}`, {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch audio features');
+    if (trackIds.length === 0) {
+      return [];
     }
 
-    const data = await response.json();
-    return data.audio_features.filter(Boolean);
+    // Spotify API allows max 100 tracks per request
+    const batchSize = 100;
+    const allFeatures: AudioFeatures[] = [];
+
+    for (let i = 0; i < trackIds.length; i += batchSize) {
+      const batch = trackIds.slice(i, i + batchSize);
+      const idsParam = batch.join(',');
+      
+      console.log(`Fetching audio features for ${batch.length} tracks`);
+      
+      const response = await fetch(`${this.baseUrl}/audio-features?ids=${idsParam}`, {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`
+        }
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Audio features error:', response.status, errorText);
+        throw new Error(`Failed to fetch audio features: ${response.status} ${errorText}`);
+      }
+
+      const data = await response.json();
+      if (data.audio_features) {
+        allFeatures.push(...data.audio_features.filter(Boolean));
+      }
+    }
+
+    return allFeatures;
   }
 
   async getUserPlaylists(accessToken: string): Promise<any[]> {

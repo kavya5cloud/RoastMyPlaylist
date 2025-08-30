@@ -121,9 +121,25 @@ export async function registerRoutes(app: Express): Promise<Server> {
         spotifyService.getUserPlaylists(accessToken)
       ]);
 
-      // Get audio features for top tracks
+      // Get audio features for top tracks (with fallback)
       const trackIds = topTracks.map(t => t.id);
-      const audioFeatures = await spotifyService.getAudioFeatures(accessToken, trackIds);
+      let audioFeatures: any[] = [];
+      
+      try {
+        audioFeatures = await spotifyService.getAudioFeatures(accessToken, trackIds);
+      } catch (error) {
+        console.warn('Failed to fetch audio features, using fallback analysis:', error);
+        // Create fallback audio features with default values
+        audioFeatures = trackIds.map(() => ({
+          danceability: 0.5,
+          energy: 0.5,
+          valence: 0.5,
+          tempo: 120,
+          acousticness: 0.5,
+          instrumentalness: 0.1,
+          speechiness: 0.1
+        }));
+      }
 
       // Store Spotify data
       await storage.createOrUpdateSpotifyData({
