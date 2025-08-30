@@ -9,10 +9,10 @@ export function RoastCard({ roast, analysis }: RoastCardProps) {
   return (
     <div id="roast-card" className="roast-card p-8 md:p-12 rounded-3xl mb-8 text-center animate-fade-in">
       <div className="text-6xl md:text-7xl mb-8 animate-float">🔥</div>
-      <h1 className="text-3xl md:text-5xl lg:text-6xl heading-display text-gradient mb-8" data-testid="text-roast-headline">
+      <h1 className="text-lg md:text-2xl lg:text-3xl heading-display text-gradient mb-8" data-testid="text-roast-headline">
         "{roast.headline}"
       </h1>
-      <div className="text-xl md:text-2xl lg:text-3xl text-enhanced text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto" data-testid="text-roast-description">
+      <div className="text-sm md:text-lg lg:text-xl text-enhanced text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto" data-testid="text-roast-description">
         {roast.description}
       </div>
       
