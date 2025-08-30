@@ -22,13 +22,18 @@ export function TypingText({
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
+    // Reset state when text changes
+    setDisplayText("");
+    setCurrentIndex(0);
+    setIsComplete(false);
+    
     if (delay > 0) {
       const delayTimer = setTimeout(() => {
         setCurrentIndex(0);
       }, delay);
       return () => clearTimeout(delayTimer);
     }
-  }, [delay]);
+  }, [text, delay]);
 
   useEffect(() => {
     if (currentIndex < text.length) {
@@ -44,7 +49,7 @@ export function TypingText({
   }, [currentIndex, text, speed, isComplete, onComplete]);
 
   return (
-    <span className={className}>
+    <span className="block text-gradient font-light">
       {displayText}
       {showCursor && !isComplete && (
         <span className="animate-pulse text-cyan-400">|</span>
