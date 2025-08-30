@@ -107,11 +107,11 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
           <div className="mb-12">
             <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
-            <h1 className="text-sm md:text-xl lg:text-2xl heading-display mb-8">
+            <h1 className="text-lg md:text-2xl lg:text-3xl heading-display mb-8">
               <div className="mb-4 text-white pixel-text uppercase">
                 YOUR PLAYLIST
               </div>
-              <div className="text-xs md:text-lg lg:text-xl text-gradient pixel-text uppercase">
+              <div className="text-lg md:text-2xl lg:text-3xl text-gradient pixel-text uppercase">
                 JUST GOT ROASTED
               </div>
             </h1>

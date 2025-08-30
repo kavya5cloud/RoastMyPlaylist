@@ -55,7 +55,7 @@ export default function Loading() {
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
       <div className="max-w-md mx-auto text-center">
-        <div className="border-4 border-green-500 bg-gray-900 p-8 pixel-border">
+        <div className="bg-gray-900 p-8">
           <div className="text-6xl mb-6 animate-bounce">🎵</div>
           <h2 className="text-sm pixel-text text-white mb-4 uppercase">Analyzing Your Music Taste...</h2>
           <p className="text-green-400 pixel-text mb-6 text-xs uppercase">This might hurt a little</p>
