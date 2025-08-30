@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface TypingTextProps {
   text: string;
@@ -18,50 +18,71 @@ export function TypingText({
   onComplete 
 }: TypingTextProps) {
   const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(-1);
-  const [isStarted, setIsStarted] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const indexRef = useRef(0);
 
   // Reset when text changes
   useEffect(() => {
     setDisplayText("");
-    setCurrentIndex(-1);
-    setIsStarted(false);
+    setIsTyping(false);
     setIsComplete(false);
+    indexRef.current = 0;
+    
+    // Clear any existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
   }, [text]);
 
   // Start typing after delay
   useEffect(() => {
-    if (currentIndex === -1 && !isStarted) {
-      const timer = setTimeout(() => {
-        setIsStarted(true);
-        setCurrentIndex(0);
+    if (!isTyping && !isComplete && text.length > 0) {
+      const startTimer = setTimeout(() => {
+        setIsTyping(true);
+        
+        intervalRef.current = setInterval(() => {
+          if (indexRef.current < text.length) {
+            setDisplayText(text.substring(0, indexRef.current + 1));
+            indexRef.current++;
+          } else {
+            if (intervalRef.current) {
+              clearInterval(intervalRef.current);
+              intervalRef.current = null;
+            }
+            setIsTyping(false);
+            setIsComplete(true);
+            onComplete?.();
+          }
+        }, speed);
       }, delay);
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex, isStarted, delay]);
 
-  // Type each character
-  useEffect(() => {
-    if (isStarted && currentIndex >= 0 && currentIndex <= text.length) {
-      const timer = setTimeout(() => {
-        if (currentIndex < text.length) {
-          setDisplayText(text.substring(0, currentIndex + 1));
-          setCurrentIndex(prev => prev + 1);
-        } else if (!isComplete) {
-          setIsComplete(true);
-          onComplete?.();
+      return () => {
+        clearTimeout(startTimer);
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+          intervalRef.current = null;
         }
-      }, speed);
-      return () => clearTimeout(timer);
+      };
     }
-  }, [currentIndex, isStarted, text, speed, isComplete, onComplete]);
+  }, [text, speed, delay, isTyping, isComplete, onComplete]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <span className={`pixel-text ${className}`}>
+    <span className={`pixel-text typewriter-container ${className}`}>
       {displayText}
-      {showCursor && !isComplete && isStarted && (
-        <span className="pixel-cursor">█</span>
+      {showCursor && (
+        <span className={`pixel-cursor ${isComplete ? 'cursor-complete' : ''}`}>█</span>
       )}
     </span>
   );

@@ -360,12 +360,24 @@
     image-rendering: -moz-crisp-edges;
     image-rendering: crisp-edges;
     text-rendering: optimizeSpeed;
+    white-space: nowrap;
+  }
+  
+  .typewriter-container {
+    position: relative;
+    display: inline-block;
   }
   
   .pixel-cursor {
     color: #00ff00;
     animation: pixelBlink 1s infinite;
     text-shadow: 0 0 2px #00ff00;
+    margin-left: 2px;
+  }
+  
+  .pixel-cursor.cursor-complete {
+    animation: none;
+    opacity: 0;
   }
   
   @keyframes pixelBlink {
