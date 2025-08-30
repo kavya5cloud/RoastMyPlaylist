@@ -2,7 +2,9 @@ import type { User, SpotifyTrack, SpotifyArtist, AudioFeatures } from "@shared/s
 
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID!;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET!;
-const REDIRECT_URI = `${process.env.REPLIT_DOMAINS?.split(',')[0] || 'http://localhost:5000'}/api/auth/spotify/callback`;
+const REDIRECT_URI = process.env.REPLIT_DOMAINS 
+  ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}/api/auth/spotify/callback`
+  : 'http://localhost:5000/api/auth/spotify/callback';
 
 export class SpotifyService {
   private baseUrl = 'https://api.spotify.com/v1';
