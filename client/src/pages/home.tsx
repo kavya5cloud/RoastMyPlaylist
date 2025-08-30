@@ -115,17 +115,11 @@ export default function Home() {
                 JUST GOT ROASTED
               </div>
             </h1>
-            <div className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto text-reveal-delay">
-              <AnimatedLetters 
-                text="Connect your Spotify and let AI brutally judge your music taste"
-                delay={4000}
-              />
+            <div className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
+              Connect your Spotify and let AI brutally judge your music taste
             </div>
-            <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto text-reveal-delay-2">
-              <AnimatedLetters 
-                text="Prepare for some savage but hilarious feedback"
-                delay={5500}
-              />
+            <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Prepare for some savage but hilarious feedback
             </div>
           </div>
 

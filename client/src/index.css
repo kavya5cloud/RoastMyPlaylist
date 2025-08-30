@@ -368,18 +368,8 @@
     display: inline-block;
   }
   
-  .pixel-cursor {
-    color: #00ff00;
-    animation: pixelBlink 1s infinite;
-    text-shadow: 0 0 2px #00ff00;
-    margin-left: 2px;
-  }
   
   
-  @keyframes pixelBlink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
   
   .heading-lg {
     font-family: var(--font-display);
@@ -399,21 +389,7 @@
     font-family: var(--font-display);
   }
   
-  .typewriter {
-    overflow: hidden;
-    border-right: 3px solid rgba(0, 200, 255, 0.8);
-    white-space: nowrap;
-    animation: typewriter 3s steps(40, end), futuristicBlink 1s infinite;
-    text-shadow: 0 0 10px rgba(0, 200, 255, 0.3);
-  }
   
-  .typewriter-slow {
-    overflow: hidden;
-    border-right: 3px solid rgba(100, 50, 255, 0.8);
-    white-space: nowrap;
-    animation: typewriter 4s steps(50, end) 0.5s both, futuristicBlink 1s infinite 0.5s;
-    text-shadow: 0 0 10px rgba(100, 50, 255, 0.3);
-  }
   
   .text-reveal {
     animation: textReveal 1s ease-out;
@@ -506,25 +482,7 @@
 }
 
 
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
 
-@keyframes futuristicBlink {
-  0%, 50% {
-    border-right-color: rgba(0, 200, 255, 0.8);
-    box-shadow: 2px 0 5px rgba(0, 200, 255, 0.5);
-  }
-  51%, 100% {
-    border-right-color: transparent;
-    box-shadow: none;
-  }
-}
 
 @keyframes hologramGlow {
   0%, 100% {
