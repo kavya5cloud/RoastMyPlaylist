@@ -66,13 +66,13 @@ export default function Loading() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="max-w-lg mx-auto text-center">
-        <div className="bg-gray-900 p-12 rounded-lg">
+      <div className="max-w-2xl mx-auto text-center">
+        <div className="bg-gray-900 p-8 rounded-lg">
           <div className="text-6xl mb-8">🎵</div>
-          <h2 className="text-lg pixel-text text-white mb-6 uppercase leading-relaxed">Analyzing Your Music Taste...</h2>
-          <p className="text-green-400 pixel-text mb-8 text-sm uppercase leading-relaxed">This might hurt a little</p>
+          <h2 className="text-sm pixel-text text-white mb-6 uppercase leading-relaxed">Analyzing Your Music Taste...</h2>
+          <p className="text-green-400 pixel-text mb-8 text-xs uppercase leading-relaxed">This might hurt a little</p>
           
-          <div className="space-y-4 text-left max-w-sm mx-auto">
+          <div className="space-y-4 text-left max-w-md mx-auto">
             {loadingSteps.map((step, index) => (
               <div key={index} className="flex items-center gap-3" data-testid={`loading-step-${index}`}>
                 <div className={`w-4 h-4 border-2 flex-shrink-0 ${
@@ -85,7 +85,7 @@ export default function Loading() {
                   )}
                 </div>
                 <span 
-                  className={`text-xs pixel-text leading-relaxed break-words ${
+                  className={`text-xs pixel-text leading-tight break-words flex-1 ${
                     index <= currentStep 
                       ? 'text-white' 
                       : 'text-gray-500'
