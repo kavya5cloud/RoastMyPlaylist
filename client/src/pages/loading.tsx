@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -12,6 +12,12 @@ const loadingSteps = [
 export default function Loading() {
   const [, setLocation] = useLocation();
   const [currentStep, setCurrentStep] = useState(0);
+
+  // Check authentication first
+  const { data: user, isLoading: isCheckingAuth, isError: authError } = useQuery({
+    queryKey: ["/api/user"],
+    retry: false,
+  });
 
   const generateRoastMutation = useMutation({
     mutationFn: () => apiRequest("POST", "/api/roast"),
@@ -28,12 +34,18 @@ export default function Loading() {
   });
 
   useEffect(() => {
+    // Redirect to home if not authenticated
+    if (authError || (!isCheckingAuth && !user)) {
+      setLocation("/?error=auth-required");
+      return;
+    }
+
     // Check if we have authentication before starting roast generation
     const urlParams = new URLSearchParams(window.location.search);
     const preview = urlParams.get('preview');
     
-    if (!preview) {
-      // Start the roast generation process only if not in preview mode
+    if (!preview && user && !generateRoastMutation.isSuccess && !generateRoastMutation.isPending) {
+      // Start the roast generation process only if authenticated and not already started
       generateRoastMutation.mutate();
     }
 
@@ -50,7 +62,7 @@ export default function Loading() {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [user, isCheckingAuth, authError, generateRoastMutation.isSuccess, generateRoastMutation.isPending]);
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
