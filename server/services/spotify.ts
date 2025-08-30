@@ -6,8 +6,6 @@ const REDIRECT_URI = process.env.REPLIT_DOMAINS
   ? `https://${process.env.REPLIT_DOMAINS.split(',')[0]}/api/auth/spotify/callback`
   : 'http://localhost:5000/api/auth/spotify/callback';
 
-console.log('Using redirect URI:', REDIRECT_URI);
-
 export class SpotifyService {
   private baseUrl = 'https://api.spotify.com/v1';
 
