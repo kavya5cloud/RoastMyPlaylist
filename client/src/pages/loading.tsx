@@ -63,13 +63,6 @@ export default function Loading() {
           <div className="space-y-3 text-left">
             {loadingSteps.map((step, index) => (
               <div key={index} className="flex items-center gap-3" data-testid={`loading-step-${index}`}>
-                <div 
-                  className={`w-4 h-4 rounded-full transition-all duration-500 ${
-                    index <= currentStep 
-                      ? 'bg-primary' 
-                      : 'bg-muted animate-pulse'
-                  }`}
-                ></div>
                 <span 
                   className={`text-xs pixel-text ${
                     index <= currentStep 
