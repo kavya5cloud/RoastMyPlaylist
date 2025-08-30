@@ -57,8 +57,8 @@ export default function Loading() {
       <div className="max-w-md mx-auto text-center">
         <div className="border-4 border-green-500 bg-gray-900 p-8 pixel-border">
           <div className="text-6xl mb-6 animate-bounce">🎵</div>
-          <h2 className="text-lg pixel-text text-white mb-4 uppercase">Analyzing Your Music Taste...</h2>
-          <p className="text-green-400 pixel-text mb-6 text-sm uppercase">This might hurt a little</p>
+          <h2 className="text-sm pixel-text text-white mb-4 uppercase">Analyzing Your Music Taste...</h2>
+          <p className="text-green-400 pixel-text mb-6 text-xs uppercase">This might hurt a little</p>
           
           <div className="space-y-3 text-left">
             {loadingSteps.map((step, index) => (
@@ -71,10 +71,10 @@ export default function Loading() {
                   }`}
                 ></div>
                 <span 
-                  className={`text-sm transition-all duration-500 ${
+                  className={`text-xs pixel-text ${
                     index <= currentStep 
-                      ? 'text-foreground' 
-                      : 'text-muted-foreground'
+                      ? 'text-white' 
+                      : 'text-gray-500'
                   }`}
                 >
                   {step}
@@ -84,8 +84,8 @@ export default function Loading() {
           </div>
 
           {generateRoastMutation.isError && (
-            <div className="mt-6 p-4 bg-destructive/20 border border-destructive/30 rounded-lg">
-              <p className="text-destructive text-sm">
+            <div className="mt-6 p-4 bg-red-900 border-2 border-red-500">
+              <p className="text-red-400 text-xs pixel-text uppercase">
                 Failed to generate roast. Please try again.
               </p>
             </div>
