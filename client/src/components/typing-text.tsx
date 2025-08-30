@@ -18,46 +18,50 @@ export function TypingText({
   onComplete 
 }: TypingTextProps) {
   const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(-1);
+  const [isStarted, setIsStarted] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
 
+  // Reset when text changes
   useEffect(() => {
-    // Reset state when text changes
     setDisplayText("");
-    setCurrentIndex(0);
+    setCurrentIndex(-1);
+    setIsStarted(false);
     setIsComplete(false);
-    
-    // Start typing after delay
-    const startTyping = () => {
-      setCurrentIndex(0);
-    };
+  }, [text]);
 
-    if (delay > 0) {
-      const delayTimer = setTimeout(startTyping, delay);
-      return () => clearTimeout(delayTimer);
-    } else {
-      startTyping();
-    }
-  }, [text, delay]);
-
+  // Start typing after delay
   useEffect(() => {
-    if (currentIndex < text.length && currentIndex >= 0) {
+    if (currentIndex === -1 && !isStarted) {
       const timer = setTimeout(() => {
-        setDisplayText(text.slice(0, currentIndex + 1));
-        setCurrentIndex(prev => prev + 1);
+        setIsStarted(true);
+        setCurrentIndex(0);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, isStarted, delay]);
+
+  // Type each character
+  useEffect(() => {
+    if (isStarted && currentIndex >= 0 && currentIndex <= text.length) {
+      const timer = setTimeout(() => {
+        if (currentIndex < text.length) {
+          setDisplayText(text.substring(0, currentIndex + 1));
+          setCurrentIndex(prev => prev + 1);
+        } else if (!isComplete) {
+          setIsComplete(true);
+          onComplete?.();
+        }
       }, speed);
       return () => clearTimeout(timer);
-    } else if (currentIndex === text.length && !isComplete) {
-      setIsComplete(true);
-      onComplete?.();
     }
-  }, [currentIndex, text, speed, isComplete, onComplete]);
+  }, [currentIndex, isStarted, text, speed, isComplete, onComplete]);
 
   return (
-    <span className="block text-gradient font-light">
+    <span className={`pixel-text ${className}`}>
       {displayText}
-      {showCursor && !isComplete && (
-        <span className="animate-pulse text-cyan-400">|</span>
+      {showCursor && !isComplete && isStarted && (
+        <span className="pixel-cursor">█</span>
       )}
     </span>
   );
