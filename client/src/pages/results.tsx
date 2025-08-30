@@ -49,7 +49,7 @@ export default function Results() {
     return (
       <div className="min-h-screen gradient-bg flex items-center justify-center">
         <div className="text-center">
-          <div className="text-6xl mb-4 animate-pulse-slow">🎵</div>
+          <div className="text-6xl mb-4">🎵</div>
           <p className="text-muted-foreground">Loading your roast...</p>
         </div>
       </div>

@@ -320,17 +320,8 @@
     animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .animate-pulse-slow {
-    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
   
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
   
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite alternate;
-  }
   
   .text-gradient {
     color: #00ff88;
