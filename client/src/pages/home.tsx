@@ -48,24 +48,14 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center animate-fade-in">
             <div className="mb-12">
               <div className="text-8xl md:text-9xl mb-6">🎵</div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl heading-display text-gradient animate-glow mb-6">
-                <TypingText 
-                  text={`Welcome Back, ${user.displayName}!`} 
-                  speed={80} 
-                  className="glitch-text"
-                />
+              <h1 className="text-lg md:text-2xl lg:text-3xl heading-display text-gradient mb-6">
+                Welcome Back, {user.displayName}!
               </h1>
-              <div className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto text-reveal-delay">
-                <AnimatedLetters 
-                  text="Ready for another brutal review of your music taste?"
-                  delay={3000}
-                />
+              <div className="text-sm md:text-lg text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
+                Ready for another brutal review of your music taste?
               </div>
-              <div className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto text-reveal-delay-2">
-                <AnimatedLetters 
-                  text="Let's see what questionable choices you've made recently 😈"
-                  delay={4500}
-                />
+              <div className="text-sm md:text-lg text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Let's see what questionable choices you've made recently 😈
               </div>
             </div>
 
@@ -79,17 +69,17 @@ export default function Home() {
             </Button>
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
-              <div className="glass-card p-6 rounded-lg animate-slide-up">
+              <div className="glass-card p-6 rounded-lg">
                 <div className="text-4xl mb-3">🎵</div>
                 <h3 className="font-bold text-lg mb-2">Fresh Analysis</h3>
                 <p className="text-muted-foreground text-sm">Updated analysis of your latest listening habits</p>
               </div>
-              <div className="glass-card p-6 rounded-lg animate-slide-up" style={{animationDelay: '0.1s'}}>
+              <div className="glass-card p-6 rounded-lg">
                 <div className="text-4xl mb-3">🤖</div>
                 <h3 className="font-bold text-lg mb-2">AI-Powered Burns</h3>
                 <p className="text-muted-foreground text-sm">New roasts generated just for your unique taste</p>
               </div>
-              <div className="glass-card p-6 rounded-lg animate-slide-up" style={{animationDelay: '0.2s'}}>
+              <div className="glass-card p-6 rounded-lg">
                 <div className="text-4xl mb-3">📱</div>
                 <h3 className="font-bold text-lg mb-2">Share the Roast</h3>
                 <p className="text-muted-foreground text-sm">Generate shareable cards for social media</p>
