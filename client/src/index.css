@@ -44,11 +44,11 @@
   --sidebar-border: hsl(210, 11%, 20%);
   --sidebar-ring: hsl(142, 76%, 36%);
   --font-sans: 'Space Grotesk', 'Inter', sans-serif;
-  --font-display: 'VT323', 'Share Tech Mono', monospace;
+  --font-display: 'Inter', sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: 'VT323', 'Share Tech Mono', monospace;
-  --font-retro: 'VT323', monospace;
-  --font-terminal: 'VT323', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-retro: 'Inter', sans-serif;
+  --font-terminal: 'JetBrains Mono', monospace;
   --radius: 1rem;
   --tracking-normal: 0em;
   --spacing: 0.25rem;
@@ -93,39 +93,9 @@
 
 @layer utilities {
   .gradient-bg {
-    background: linear-gradient(0deg, #001100 0%, #002200 50%, #001100 100%);
+    background: linear-gradient(135deg, hsl(240, 10%, 8%) 0%, hsl(240, 15%, 12%) 100%);
     position: relative;
     overflow: hidden;
-  }
-  
-  .gradient-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      linear-gradient(rgba(0, 255, 0, 0.3) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 255, 0, 0.3) 1px, transparent 1px);
-    background-size: 30px 30px;
-    animation: matrixGrid 20s linear infinite;
-    pointer-events: none;
-  }
-  
-  .gradient-bg::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%),
-      linear-gradient(transparent 50%, rgba(0, 255, 0, 0.02) 50%);
-    background-size: 100% 100%, 100% 4px;
-    animation: scanlines 0.1s linear infinite;
-    pointer-events: none;
   }
   
   @keyframes scanlines {
@@ -138,18 +108,18 @@
   }
   
   .glass-card {
-    background: rgba(0, 20, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border: 1px solid #00ff00;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(15, 15, 23, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
   }
   
   .glass-card:hover {
-    background: rgba(0, 30, 0, 0.9);
-    border-color: #00ff00;
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5);
+    background: rgba(15, 15, 23, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
   }
   
   .roast-card {
@@ -180,15 +150,13 @@
   }
   
   .spotify-button {
-    background: rgba(0, 50, 0, 0.8);
-    border: 2px solid #00ff00;
-    color: #00ff00;
-    font-family: var(--font-terminal);
-    text-shadow: 0 0 5px #00ff00;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, 
+      hsl(142, 76%, 36%) 0%, 
+      hsl(142, 80%, 42%) 100%);
+    border: none;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    animation: terminalGlow 2s ease-in-out infinite alternate;
   }
   
   .spotify-button::before {
@@ -210,10 +178,11 @@
   }
   
   .spotify-button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 255, 0, 0.4), 0 0 30px rgba(0, 255, 0, 0.5);
-    background: rgba(0, 70, 0, 0.9);
-    text-shadow: 0 0 10px #00ff00;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(29, 185, 84, 0.3);
+    background: linear-gradient(135deg, 
+      hsl(142, 80%, 42%) 0%, 
+      hsl(142, 85%, 48%) 100%);
   }
   
   .share-button {
@@ -272,21 +241,23 @@
   }
   
   .text-gradient {
-    color: #00ff00;
-    font-family: var(--font-terminal);
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00;
-    animation: terminalGlow 2s ease-in-out infinite alternate;
+    background: linear-gradient(135deg, 
+      hsl(200, 70%, 60%) 0%, 
+      hsl(280, 60%, 70%) 50%,
+      hsl(320, 60%, 65%) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
   }
   
   .heading-display {
-    font-family: var(--font-terminal);
-    font-weight: 400;
-    letter-spacing: 0.1em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
     line-height: 1.1;
-    text-transform: uppercase;
-    font-size: 1.2em;
   }
   
   .heading-lg {
@@ -309,22 +280,16 @@
   
   .typewriter {
     overflow: hidden;
-    border-right: 3px solid #00ff00;
+    border-right: 3px solid rgba(100, 150, 255, 0.8);
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blinkCursor 1s infinite;
-    font-family: var(--font-terminal);
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
   }
   
   .typewriter-slow {
     overflow: hidden;
-    border-right: 3px solid #00ff00;
+    border-right: 3px solid rgba(150, 100, 255, 0.8);
     white-space: nowrap;
     animation: typewriter 4s steps(50, end) 0.5s both, blinkCursor 1s infinite 0.5s;
-    font-family: var(--font-terminal);
-    color: #00ff00;
-    text-shadow: 0 0 5px #00ff00;
   }
   
   .text-reveal {
@@ -447,16 +412,10 @@
 
 @keyframes glow {
   0%, 100% { 
-    text-shadow: 0 0 5px #00ff00,
-                 0 0 10px #00ff00,
-                 0 0 15px #00ff00,
-                 0 0 20px #00ff00;
+    text-shadow: 0 0 20px rgba(100, 150, 255, 0.3);
   }
   50% { 
-    text-shadow: 0 0 10px #00ff00,
-                 0 0 20px #00ff00,
-                 0 0 30px #00ff00,
-                 0 0 40px #00ff00;
+    text-shadow: 0 0 30px rgba(150, 100, 255, 0.4);
   }
 }
 
@@ -557,7 +516,7 @@
 
 @keyframes blinkCursor {
   0%, 50% {
-    border-right-color: #00ff00;
+    border-right-color: rgba(100, 150, 255, 0.8);
   }
   51%, 100% {
     border-right-color: transparent;
