@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(210, 11%, 7%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 11%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(210, 11%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(268, 76%, 56%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 11%, 15%);
+  --muted-foreground: hsl(0, 0%, 65%);
+  --accent: hsl(268, 76%, 56%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(356, 90%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(210, 11%, 20%);
+  --input: hsl(210, 11%, 15%);
+  --ring: hsl(142, 76%, 36%);
+  --chart-1: hsl(142, 76%, 36%);
+  --chart-2: hsl(268, 76%, 56%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(210, 11%, 12%);
+  --sidebar-foreground: hsl(0, 0%, 98%);
+  --sidebar-primary: hsl(142, 76%, 36%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(268, 76%, 56%);
+  --sidebar-accent-foreground: hsl(0, 0%, 98%);
+  --sidebar-border: hsl(210, 11%, 20%);
+  --sidebar-ring: hsl(142, 76%, 36%);
+  --font-sans: 'Inter', 'Open Sans', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00), 0px 1px 2px -1px hsl(142, 76%, 36%, 0.00);
+  --shadow: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00), 0px 1px 2px -1px hsl(142, 76%, 36%, 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00), 0px 2px 4px -1px hsl(142, 76%, 36%, 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00), 0px 4px 6px -1px hsl(142, 76%, 36%, 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00), 0px 8px 10px -1px hsl(142, 76%, 36%, 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(142, 76%, 36%, 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(210, 11%, 7%);
+  --foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 11%, 12%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --popover: hsl(210, 11%, 12%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --primary: hsl(142, 76%, 36%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(268, 76%, 56%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 11%, 15%);
+  --muted-foreground: hsl(0, 0%, 65%);
+  --accent: hsl(268, 76%, 56%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(356, 90%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(210, 11%, 20%);
+  --input: hsl(210, 11%, 15%);
+  --ring: hsl(142, 76%, 36%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply dark;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .gradient-bg {
+    background: linear-gradient(135deg, hsl(142, 76%, 36%, 0.1) 0%, hsl(268, 76%, 56%, 0.1) 100%);
+  }
+  
+  .glass-card {
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+  }
+  
+  .roast-card {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.95) 0%, rgba(30, 30, 30, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid;
+    border-image: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(268, 76%, 56%) 100%) 1;
+  }
+  
+  .spotify-button {
+    background: linear-gradient(135deg, hsl(142, 76%, 36%) 0%, hsl(142, 76%, 40%) 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .spotify-button:hover {
+    background: linear-gradient(135deg, hsl(142, 76%, 40%) 0%, hsl(142, 76%, 44%) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(29, 185, 84, 0.3);
+  }
+  
+  .share-button {
+    background: linear-gradient(135deg, hsl(268, 76%, 56%) 0%, hsl(268, 76%, 60%) 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .share-button:hover {
+    background: linear-gradient(135deg, hsl(268, 76%, 60%) 0%, hsl(268, 76%, 64%) 100%);
+    transform: translateY(-2px);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
