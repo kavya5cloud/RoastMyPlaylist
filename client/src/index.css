@@ -336,22 +336,20 @@
     color: #00ff88;
     font-family: 'Press Start 2P', monospace;
     font-weight: 400;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-shadow: 
-      0 0 10px rgba(0, 255, 136, 0.8),
-      0 0 20px rgba(0, 255, 136, 0.5),
-      2px 2px 0px rgba(0, 0, 0, 0.8);
+      0 0 3px rgba(0, 255, 136, 0.4),
+      1px 1px 0px rgba(0, 0, 0, 0.7);
   }
   
   .heading-display {
     font-family: 'Press Start 2P', monospace;
     font-weight: 400;
-    letter-spacing: 0.15em;
-    line-height: 1.6;
+    letter-spacing: 0.1em;
+    line-height: 1.8;
     text-shadow: 
-      0 0 10px rgba(0, 255, 100, 0.6),
-      0 0 20px rgba(0, 255, 100, 0.4),
-      2px 2px 0px rgba(0, 0, 0, 0.9);
+      0 0 3px rgba(0, 255, 100, 0.3),
+      1px 1px 0px rgba(0, 0, 0, 0.7);
   }
   
   .pixel-text {
@@ -367,7 +365,7 @@
   .pixel-cursor {
     color: #00ff00;
     animation: pixelBlink 1s infinite;
-    text-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 2px #00ff00;
   }
   
   @keyframes pixelBlink {
