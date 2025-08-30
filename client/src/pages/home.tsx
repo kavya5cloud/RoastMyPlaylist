@@ -47,7 +47,7 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center p-4">
           <div className="max-w-2xl mx-auto text-center animate-fade-in">
             <div className="mb-12">
-              <div className="text-8xl md:text-9xl mb-6 animate-float">🎵</div>
+              <div className="text-8xl md:text-9xl mb-6">🎵</div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl heading-display text-gradient animate-glow mb-6">
                 <TypingText 
                   text={`Welcome Back, ${user.displayName}!`} 
@@ -106,7 +106,7 @@ export default function Home() {
       <section className="min-h-screen flex items-center justify-center p-4">
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
           <div className="mb-12">
-            <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
+            <div className="text-8xl md:text-9xl mb-6">🔥</div>
             <h1 className="text-lg md:text-2xl lg:text-3xl heading-display mb-8">
               <div className="mb-4 text-white pixel-text uppercase">
                 YOUR PLAYLIST

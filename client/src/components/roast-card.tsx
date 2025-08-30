@@ -8,7 +8,7 @@ interface RoastCardProps {
 export function RoastCard({ roast, analysis }: RoastCardProps) {
   return (
     <div id="roast-card" className="roast-card p-8 md:p-12 rounded-3xl mb-8 text-center animate-fade-in">
-      <div className="text-6xl md:text-7xl mb-8 animate-float">🔥</div>
+      <div className="text-6xl md:text-7xl mb-8">🔥</div>
       <h1 className="text-lg md:text-2xl lg:text-3xl heading-display text-gradient mb-8" data-testid="text-roast-headline">
         "{roast.headline}"
       </h1>
@@ -19,17 +19,17 @@ export function RoastCard({ roast, analysis }: RoastCardProps) {
       {/* Roast Categories */}
       <div className="grid md:grid-cols-3 gap-6 mb-8">
         <div className="stat-card p-6 rounded-2xl animate-slide-up">
-          <div className="text-3xl mb-3 animate-float">😭</div>
+          <div className="text-3xl mb-3">😭</div>
           <p className="text-lg heading-lg mb-2 text-gradient">Sad Songs</p>
           <p className="text-2xl font-black text-foreground" data-testid="stat-sad-songs">{analysis.sadSongsPercentage}%</p>
         </div>
         <div className="stat-card p-6 rounded-2xl animate-slide-up" style={{animationDelay: '0.1s'}}>
-          <div className="text-3xl mb-3 animate-float" style={{animationDelay: '1s'}}>📻</div>
+          <div className="text-3xl mb-3">📻</div>
           <p className="text-lg heading-lg mb-2 text-gradient">Mainstream</p>
           <p className="text-2xl font-black text-foreground" data-testid="stat-mainstream">{analysis.mainStreamPercentage}%</p>
         </div>
         <div className="stat-card p-6 rounded-2xl animate-slide-up" style={{animationDelay: '0.2s'}}>
-          <div className="text-3xl mb-3 animate-float" style={{animationDelay: '2s'}}>📅</div>
+          <div className="text-3xl mb-3">📅</div>
           <p className="text-lg heading-lg mb-2 text-gradient">2010s Nostalgia</p>
           <p className="text-2xl font-black text-foreground" data-testid="stat-nostalgia">{analysis.nostalgiaPercentage}%</p>
         </div>

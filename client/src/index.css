@@ -311,9 +311,6 @@
     font-family: 'Press Start 2P', monospace;
     font-weight: 400;
     letter-spacing: 0.1em;
-    text-shadow: 
-      0 0 3px rgba(0, 255, 136, 0.4),
-      1px 1px 0px rgba(0, 0, 0, 0.7);
   }
   
   .heading-display {
@@ -321,9 +318,6 @@
     font-weight: 400;
     letter-spacing: 0.1em;
     line-height: 1.8;
-    text-shadow: 
-      0 0 3px rgba(0, 255, 100, 0.3),
-      1px 1px 0px rgba(0, 0, 0, 0.7);
   }
   
   .pixel-text {
@@ -452,7 +446,7 @@
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(0px); }
 }
 
 
@@ -460,17 +454,10 @@
 
 @keyframes hologramGlow {
   0%, 100% {
-    text-shadow: 
-      0 0 5px rgba(0, 200, 255, 0.5),
-      0 0 10px rgba(0, 200, 255, 0.3),
-      0 0 15px rgba(0, 200, 255, 0.2);
+    text-shadow: none;
   }
   50% {
-    text-shadow: 
-      0 0 10px rgba(0, 200, 255, 0.8),
-      0 0 20px rgba(0, 200, 255, 0.5),
-      0 0 30px rgba(0, 200, 255, 0.3),
-      0 0 40px rgba(100, 50, 255, 0.2);
+    text-shadow: none;
   }
 }
 
