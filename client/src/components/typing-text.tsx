@@ -27,18 +27,23 @@ export function TypingText({
     setCurrentIndex(0);
     setIsComplete(false);
     
+    // Start typing after delay
+    const startTyping = () => {
+      setCurrentIndex(0);
+    };
+
     if (delay > 0) {
-      const delayTimer = setTimeout(() => {
-        setCurrentIndex(0);
-      }, delay);
+      const delayTimer = setTimeout(startTyping, delay);
       return () => clearTimeout(delayTimer);
+    } else {
+      startTyping();
     }
   }, [text, delay]);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
+    if (currentIndex < text.length && currentIndex >= 0) {
       const timer = setTimeout(() => {
-        setDisplayText(prev => prev + text[currentIndex]);
+        setDisplayText(text.slice(0, currentIndex + 1));
         setCurrentIndex(prev => prev + 1);
       }, speed);
       return () => clearTimeout(timer);

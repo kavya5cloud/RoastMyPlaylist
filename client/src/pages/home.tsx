@@ -107,21 +107,21 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
           <div className="mb-12">
             <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl heading-display text-gradient mb-8 leading-tight">
-              <div className="mb-2">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl heading-display mb-8">
+              <div className="mb-4 text-white">
                 <TypingText 
                   text="Your Playlist" 
                   speed={120} 
-                  className="block text-white font-medium"
+                  className="block"
                   onComplete={() => {}}
                 />
               </div>
-              <div className="text-4xl md:text-6xl lg:text-7xl">
+              <div className="text-xl md:text-3xl lg:text-4xl text-gradient">
                 <TypingText 
                   text="Just Got Roasted" 
                   speed={100} 
                   delay={2000}
-                  className="block text-gradient font-bold"
+                  className="block"
                 />
               </div>
             </h1>

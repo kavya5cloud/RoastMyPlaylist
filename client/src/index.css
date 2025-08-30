@@ -44,11 +44,11 @@
   --sidebar-border: hsl(210, 11%, 20%);
   --sidebar-ring: hsl(142, 76%, 36%);
   --font-sans: 'Space Grotesk', 'Inter', sans-serif;
-  --font-display: 'Inter', sans-serif;
+  --font-display: 'Press Start 2P', 'Pixel Emulator', 'Courier New', monospace;
   --font-serif: Georgia, serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-retro: 'Inter', sans-serif;
-  --font-terminal: 'JetBrains Mono', monospace;
+  --font-mono: 'Press Start 2P', 'Pixel Emulator', monospace;
+  --font-retro: 'Press Start 2P', 'Pixel Emulator', monospace;
+  --font-terminal: 'Press Start 2P', 'Pixel Emulator', monospace;
   --radius: 1rem;
   --tracking-normal: 0em;
   --spacing: 0.25rem;
@@ -341,19 +341,20 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-family: 'Press Start 2P', var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
   
   .heading-display {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    line-height: 1.1;
+    font-family: 'Press Start 2P', var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
     text-shadow: 
-      0 0 10px rgba(0, 200, 255, 0.3),
-      0 0 20px rgba(0, 200, 255, 0.2);
+      0 0 10px rgba(0, 200, 255, 0.4),
+      0 0 20px rgba(0, 200, 255, 0.3),
+      2px 2px 0px rgba(0, 0, 0, 0.8);
   }
   
   .heading-lg {
