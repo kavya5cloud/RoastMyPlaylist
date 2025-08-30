@@ -47,13 +47,13 @@ export default function Home() {
           <div className="max-w-2xl mx-auto text-center animate-fade-in">
             <div className="mb-12">
               <div className="text-8xl md:text-9xl mb-6 animate-float">🎵</div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 text-gradient animate-glow leading-tight">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl heading-display text-gradient animate-glow mb-6">
                 Welcome Back,<br />{user.displayName}!
               </h1>
-              <p className="text-xl md:text-3xl text-muted-foreground font-medium mb-4 max-w-3xl mx-auto">
+              <p className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
                 Ready for another brutal review of your music taste?
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Let's see what questionable choices you've made recently 😈
               </p>
             </div>
@@ -96,13 +96,13 @@ export default function Home() {
         <div className="max-w-2xl mx-auto text-center animate-fade-in">
           <div className="mb-12">
             <div className="text-8xl md:text-9xl mb-6 animate-float">🔥</div>
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black mb-6 text-gradient animate-glow leading-tight">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl heading-display text-gradient animate-glow mb-6">
               Your Playlist<br />Just Got Roasted
             </h1>
-            <p className="text-xl md:text-3xl text-muted-foreground font-medium mb-4 max-w-3xl mx-auto">
+            <p className="text-xl md:text-3xl text-enhanced text-muted-foreground mb-4 max-w-3xl mx-auto">
               Connect your Spotify and let AI brutally judge your music taste
             </p>
-            <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-enhanced text-muted-foreground mb-12 max-w-2xl mx-auto">
               Prepare for some savage but hilarious feedback 😈
             </p>
           </div>
